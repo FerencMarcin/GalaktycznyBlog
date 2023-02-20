@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+header.masthead {
+    padding-top: 10.5rem;
+    padding-bottom: 6rem;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url("/assets/photo/tło.jpg") no-repeat scroll center center;
+    background-size: cover;
+    z-index: -10;
+}
+header.masthead .masthead-subheading {
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.5rem;
+    margin-bottom: 25px;
+    color: #da0057;
+    text-shadow: 1px 1px 10px #1c1e2a;
+}
+header.masthead .masthead-heading {
+    font-size: 3.25rem;
+    font-weight: 700;
+    line-height: 3.25rem;
+    margin-bottom: 2rem;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: #da0057;
+    text-shadow: 0px 0px 10px #1c1e2a;
+}
+
+@media (min-width: 768px) {
+    header.masthead {
+        padding-top: 17rem;
+        padding-bottom: 12.5rem;
+    }
+    header.masthead .masthead-subheading {
+        font-size: 2.25rem;
+        font-style: italic;
+        line-height: 2.25rem;
+        margin-bottom: 2rem;
+    }
+    header.masthead .masthead-heading {
+        font-size: 4.5rem;
+        font-weight: 700;
+        line-height: 4.5rem;
+        margin-bottom: 4rem;
+    }
+}
+
+.parallax1 {
+    background: url(/assets/photo/sectionHeader/section_galeria.jpg);
+}
+
+.parallax2 {
+    background: url(/assets/photo/sectionHeader/section_atlas.jpg);
+}
+
+.parallaxFooter {
+    background: url(/assets/photo/sectionHeader/section_footer.jpg);
+    height: max(80vh, 400px);
+}
+
+.parallax::before {
+    background-color: rgba(0, 0, 0, 0.411);
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.parallax {
+    text-align: center;
+    height: max(50vh, 300px);
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.heading {
+    font-family: "Righteous", cursive;
+    font-weight: bold;
+    position: absolute;
+    color: white;
+    /* color: #f11679; */
+    font-size: 2rem;
+    top: 30%;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    /* text-shadow: 0 0 10px #b60b58; */
+    text-shadow: 0 0 10px #000000;
+    z-index: 20;
+}
+
+.page-section {
+    padding: 6rem 0;
+}
+.page-section h2.section-heading,
+.page-section .section-heading.h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.page-section h3.section-subheading,
+.page-section .section-subheading.h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: italic;
+    font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    margin-bottom: 4rem;
+}
+
+@media (min-width: 200px) {
+    .heading {
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 400px) {
+    .heading {
+        font-size: 2.4rem;
+    }
+}
+
+@media (min-width: 550px) {
+    .heading {
+        font-size: 3.5rem;
+    }
+}
+
+@media (min-width: 800px) {
+    .heading {
+        font-size: 5rem;
+    }
+}
+
+ /*kolor tla */
+main {
+    background: rgba(255, 255, 255, 1);
+}
+
+@media (min-width: 1100px) {
+    main {
+        background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0.3),
+                rgba(255, 255, 255, 1) 3%,
+                rgba(255, 255, 255, 1) 97%,
+                rgba(255, 255, 255, 0.3) 100%
+        ), url(/assets/photo/bgAllSite.jpg) fixed center;
+        background-size: cover;
+    }
+}
+
+@media (min-width: 1400px) {
+    main {
+        background: linear-gradient(
+                to right,
+                    /* poczatek lewej strony */ rgba(255, 255, 255, 0.2) 0px,
+                    /* koniec lewej strony */ rgb(255, 255, 255) calc(50% - 660px),
+                    /* poczatek glownej czesci */ rgba(255, 255, 255) calc(50% - 660px),
+                    /* koniec glownej czesci */ rgba(255, 255, 255) calc(50% + 660px),
+                    /* poczatek prawej strony */ rgb(255, 255, 255) calc(50% + 660px),
+                    /* koniec prawej strony */ rgba(255, 255, 255, 0.2) 100%
+        ), url(/assets/photo/bgAllSite.jpg) fixed center;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 320px) {
+    :root {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 250px) {
+    :root {
+        font-size: 10px;
+    }
+
+    header.masthead .masthead-heading {
+        text-shadow: 2px 2px var(--textShadow);
+    }
+}
+
+@media (max-width: 200px) {
+    :root {
+        font-size: 8px;
+    }
+}
+
+.title_input {
+    width: 90%;
+}
+
+#upload_content_title {
+    width: 90%;
+}
+
+.content_input {
+    width: 90%;
+    height: 200px;
+}
+
+.pub_image {
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+}
+

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }}Rejestracja
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="container py-5 mt-5 min-vh-100">
+
+            <h1 class="mb-3 mt-4 text-center">Rejestracja</h1>
+            {% form_theme registrationForm 'bootstrap_4_layout.html.twig' %}
+            {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.username) }}
+                {{ form_row(registrationForm.plainPassword) }}
+                {{ form_row(registrationForm.agreeTerms) }}
+
+                <button type="submit" class="btn btn-lg btn-primary mt-4">Zarejestruj się</button>
+            {{ form_end(registrationForm) }}
+        </div>
+    </main>
+{% endblock %}

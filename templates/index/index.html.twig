@@ -1,0 +1,159 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }}Strona główna
+{% endblock %}
+
+{% block content %}
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-subheading">Witaj na gwiezdnym blogu!</div>
+            <div class="masthead-heading text-uppercase">Poznaj nieznane</div>
+        </div>
+    </header>
+    <main>
+        <section class="page-section" id="o_nas">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase h_color">O nas</h2>
+                    <h3 class="section-subheading text-muted fs-3 h_color_muted">
+                        Czym jest gwiezdnyblog.pl?
+                    </h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4 mt-5">
+              <span class="fa-stack fa-4x">
+                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                <i class="fas fa-book fa-stack-1x fa-inverse"></i>
+              </span>
+                        <h4 class="my-3 h2_color">Czytaj</h4>
+                        <p class="p_color">
+                            Czytaj wpisy zamieszczane na GwiezdnymBlogu przez innych użytkowników. Spędzaj czas na poznawaniu nowych, nieznanych wcześniej obiektów, być może ktoś opisze to co Tobie wcześniej umykało!
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                <i class="fas fa-globe-europe fa-stack-1x fa-inverse"></i>
+              </span>
+                        <h4 class="my-3 h2_color">GwiezdnyBlog</h4>
+                        <p class="p_color">
+                            GwiezdnyBlog to miejsce gdzie możesz dzielić się z innymi swoimi obserwacjami oraz czytać o tym co innym udało się zaobserwować na niebie!
+                        </p>
+                    </div>
+                    <div class="col-md-4 mt-5">
+              <span class="fa-stack fa-4x">
+                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                <i class="fab fa-wpexplorer fa-stack-1x fa-inverse"></i>
+              </span>
+                        <h4 class="my-3 h2_color">Obserwuj</h4>
+                        <p class="p_color">
+                            Wyjdź na zewnątrz poooglądać niebo i pochwal się innym wynikami swoich obserwacji!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="galeria" class="parallax1 parallax">
+            <div class="heading">Dodaj wpis</div>
+        </div>
+
+        <section class="page-section" id="add_new">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase h_color">Dodaj nowy wpis</h2>
+                    <h3 class="section-subheading text-muted fs-3 h_color_muted">
+                        Zacznij już teraz!
+                    </h3>
+                </div>
+
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                {% for message in app.flashes('error') %}
+                    <div class="alert alert-danger">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+
+                <div class="row">
+                    <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+                          <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-upload fa-stack-1x fa-inverse"></i>
+                          </span>
+                        <h4 class="my-3 h2_color text-center">Podziel się czymś ciekawym z innymi</h4>
+                        <p class="p_color text-center">
+                            Piękny zachód słońca? Spadająca gwiazda? Nowa planeta na niebie? A może coś zupełnie innego! Opisz co udało Ci się zaaobserwowąć, tak aby inni też mogli to zobaczyć! Nie zapomnił dołączyć zdjęcia do swojego wpisu! :)
+                        </p>
+                    </div>
+                    <div class="col-sm-12 col-md-8 d-flex align-items-center justify-content-center">
+                        <div class="d-flex mt-5">
+                            <div class="d-flex flex-column mb-12">
+                                <h1 class="text-center mb-4 h4">Napisz o czymś ciekawym!</h1>
+                                {% form_theme form 'bootstrap_4_layout.html.twig' %}
+                                {{ form_start(form, {'attr': {'class':'d-flex flex-column align-items-center justify-content-center mb-4'}}) }}
+                                    <div class="d-flex flex-column align-items-center justify-content-center font-weight-bold mt-4 mb-1 ml-2 mr-2">
+                                        {{ form_label(form.filename, 'Dodaj okładkę wpisu: ') }}
+                                        {{ form_row(form.filename) }}
+                                    </div>
+                                    <div class="d-flex flex-column align-items-center justify-content-center font-weight-bold mt-2 mb-1 ml-2 mr-2" style="width: 100%">
+                                        {{ form_label(form.title, 'Wpisz tytuł: ') }}
+                                        {{ form_widget(form.title, {'attr': {'class': 'title_input'}}) }}
+                                    </div>
+                                    <div class="d-flex flex-column align-items-center justify-content-center font-weight-bold mt-2 mb-1 ml-2 mr-2" style="width: 100%">
+                                        {{ form_label(form.content, 'Napisz coś: ') }}
+                                        {{ form_widget(form.content, {'attr': {'class': 'content_input', 'placeholder': 'Wprowadź tutaj treść swojego wpisu...'} }) }}
+                                    </div>
+
+                                    <div class="align-self-center mt-2">
+                                        {{ form_row(form.is_public) }}
+                                    </div>
+
+                                    <input type="submit" value="Wyślij" class="form-control btn btn-success w-50 align-self-center" />
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="atlas" class="parallax2 parallax">
+            <div class="heading">Dołącz do nas</div>
+        </div>
+        <section class="page-section">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase h_color">Jedyny taki blog!</h2>
+                    <h3 class="section-subheading text-muted fs-3 h_color_muted">
+                        Odrkywaj nieznane razem z nami!
+                    </h3>
+                    <div class="card mt-5">
+                        <div class="card-header">
+                            Panel użytkownika
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Załóż darmowe konto już teraz</h5>
+                            <p class="card-text">Dziel się z innymi swoją wiedzą i obserwacjami!</p>
+                            <a href="#" class="btn btn-primary">Załóż konto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="parallaxFooter parallax">
+        <div class="heading">Odkrywaj kosmos!</div>
+    </div>
+    <script>
+        let p = document.getElementById("upload_content_title");
+        let p1 = document.getElementById("upload_content_content");
+        p.value = "";
+        p1.value = "";
+    </script>
+
+{% endblock %}
